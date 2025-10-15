@@ -14,9 +14,13 @@ import PendulumSimulator from '@/views/practicals/pendulum/PendulumSimulator.vue
 import PendulumAssignment from '@/views/practicals/pendulum/PendulumAssignment.vue'
 import PendulumReference from '@/views/practicals/pendulum/PendulumReference.vue'
 import PendulumFeedback from '@/views/practicals/pendulum/PendulumFeedback.vue'
+import AskAI from '@/views/pages/AskAI.vue'
+import MainLab from '@/views/pages/MainLab.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
+  {path: '/askAI', name: 'askAI', component: AskAI},
+  {path: '/mainLab', name: 'mainLab', component: MainLab},
   { path: '/physics', name: 'physics', component: PhysicsPracticals },
   { path: '/projectile', name: 'projectile', component: ProjectileMotion },
   { path: '/newtons-law', name: 'newtonsLaw', component: NewtonsSecondLaw },

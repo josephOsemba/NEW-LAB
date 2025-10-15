@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@vue-icons/feather": "^1.0.19",
     "axios": "^1.12.2",
+    "openai": "^6.3.0",
     "pinia": "^3.0.3",
+    "three": "^0.180.0",
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
