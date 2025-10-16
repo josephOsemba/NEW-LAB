@@ -16,11 +16,20 @@ import PendulumReference from '@/views/practicals/pendulum/PendulumReference.vue
 import PendulumFeedback from '@/views/practicals/pendulum/PendulumFeedback.vue'
 import AskAI from '@/views/pages/AskAI.vue'
 import MainLab from '@/views/pages/MainLab.vue'
+import LabDetail from '@/views/pages/LabDetail.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
-  {path: '/askAI', name: 'askAI', component: AskAI},
-  {path: '/mainLab', name: 'mainLab', component: MainLab},
+  { path: '/askAI', name: 'askAI', component: AskAI },
+  { path: '/mainLab', name: 'mainLab', component: MainLab },
+  {
+    path: '/lab/:labSlug',
+    name: 'labDetail',
+    component: LabDetail,
+    props: true
+  },
+
+  // Existing practical routes
   { path: '/physics', name: 'physics', component: PhysicsPracticals },
   { path: '/projectile', name: 'projectile', component: ProjectileMotion },
   { path: '/newtons-law', name: 'newtonsLaw', component: NewtonsSecondLaw },
@@ -31,7 +40,6 @@ const routes = [
     component: PendulumLayout,
     children: [
       { path: '', redirect: { name: 'PendulumTheory' } },
-
       { path: 'theory', name: 'PendulumTheory', component: PendulumTheory },
       { path: 'procedure', name: 'PendulumProcedure', component: PendulumProcedure },
       { path: 'evaluation', name: 'PendulumEvaluation', component: PendulumEvaluation },
