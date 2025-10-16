@@ -1,0 +1,21 @@
+# Air Configuration for Go Fiber backend
+
+# Binary output (where the compiled app goes)
+bin = "tmp/main.exe"
+
+# Watch these directories for changes
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "go build -o ./tmp/main.exe ./cmd/server"
+  include_ext = ["go", "tpl", "tmpl", "html"]
+  exclude_dir = ["tmp", "bin", "scripts", "migrations"]
+
+[log]
+  time = true
+
+[color]
+  app = "green"
+  build = "yellow"
+  watcher = "cyan"
