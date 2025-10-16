@@ -1,4 +1,3 @@
--- Insert sample universities
 INSERT IGNORE INTO universities (id, slug, name, metadata)
 VALUES (
         1,
@@ -12,7 +11,6 @@ VALUES (
         'University of Eldoret',
         '{"location": "Eldoret, Kenya", "established": 1946}'
     );
--- Insert labs for Kisii University
 INSERT IGNORE INTO labs (
         id,
         university_id,
@@ -58,7 +56,6 @@ VALUES (
         '/icons/physics.jpg',
         '{"color": "#3B82F6", "category": "science"}'
     );
--- Insert experiments for Physics Lab
 INSERT IGNORE INTO experiments (
         id,
         lab_id,
@@ -109,7 +106,6 @@ VALUES (
         'intermediate',
         '{"duration": 50, "apparatus_count": 8, "objectives": ["Learn titration techniques", "Calculate concentration"]}'
     );
--- Insert apparatus for Simple Pendulum experiment
 INSERT IGNORE INTO apparatus (
         university_id,
         experiment_id,
@@ -164,7 +160,6 @@ VALUES (
         '/models/meter-scale.glb',
         '{"length": "1m", "graduation": "1mm", "interactive": true}'
     );
--- Insert apparatus for Projectile Motion experiment
 INSERT IGNORE INTO apparatus (
         university_id,
         experiment_id,

@@ -17,11 +17,8 @@ func SetupMiddleware(app *fiber.App) {
 	}))
 }
 
-// TenantMiddleware would extract tenant context from JWT or headers
 func TenantMiddleware() fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		// For now, we'll get tenant from query param
-		// In production, this would come from JWT claims
 		tenant := c.Query("university_id")
 		if tenant == "" {
 			return c.Status(400).JSON(fiber.Map{

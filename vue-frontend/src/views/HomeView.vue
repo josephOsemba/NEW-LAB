@@ -113,6 +113,7 @@ const cardData = [
   },
 ];
 
+
 // Fetch universities on component mount
 onMounted(async () => {
   try {

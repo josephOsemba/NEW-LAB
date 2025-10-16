@@ -1,7 +1,7 @@
 .PHONY: build migrate seed run test setup clean dev install-air help
 
 # =========================
-# ⚙️ Default Configuration
+# Default Configuration
 # =========================
 DB_HOST ?= localhost
 DB_PORT ?= 3306
@@ -10,80 +10,80 @@ DB_PASS ?= @Joseph13101
 DB_NAME ?= virtual_lab
 
 # =========================
-# 🏗️ Build Targets
+# Build Targets
 # =========================
 build:
-	@echo "🔧 Building application..."
+	@echo " Building application..."
 	go build -o bin/server ./cmd/server
 	go build -o bin/migrate ./cmd/migrate
-	@echo "✅ Build completed."
+	@echo " Build completed."
 
 # =========================
-# 🗄️ Database Migrations
+# Database Migrations
 # =========================
 migrate: build
-	@echo "📦 Running database migrations..."
+	@echo " Running database migrations..."
 	./bin/migrate
-	@echo "✅ Migrations applied successfully."
+	@echo " Migrations applied successfully."
 
 # =========================
-# 🌱 Seed Database
+# Seed Database
 # =========================
 seed:
-	@echo "🌱 Seeding database..."
+	@echo "Seeding database..."
 	mysql -h$(DB_HOST) -P$(DB_PORT) -u$(DB_USER) -p$(DB_PASS) $(DB_NAME) < scripts/seed.sql
-	@echo "✅ Database seeded successfully."
+	@echo " Database seeded successfully."
 
 # =========================
-# 🚀 Run Application
+# Run Application
 # =========================
 run: build
-	@echo "🚀 Starting Virtual Lab API..."
+	@echo "Starting Virtual Lab API..."
 	./bin/server
 
 # =========================
-# 🧪 Test Backend
+# Test Backend
 # =========================
 test:
-	@echo "🧪 Running backend tests..."
+	@echo "Running backend tests..."
 	go run scripts/test_backend.go
 
 # =========================
-# ⚡ Setup: Migrate + Seed
+# Setup: Migrate + Seed
 # =========================
 setup: migrate seed
-	@echo "✅ Environment setup completed."
+	@echo "Environment setup completed."
 
 # =========================
-# 🧹 Clean Build Artifacts
+# Clean Build Artifacts
 # =========================
 clean:
-	@echo "🧹 Cleaning up build artifacts..."
+	@echo " Cleaning up build artifacts..."
 	@if exist bin (rmdir /S /Q bin) || true
 	@if exist tmp (rmdir /S /Q tmp) || true
-	@echo "✅ Cleanup done."
+	@echo "Cleanup done."
 
 # =========================
-# 🔥 Development Mode (Air)
+# Development Mode (Air)
 # =========================
 dev:
-	@echo "🔥 Starting development server (Air hot reload)..."
+	@echo "Starting development server (Air hot reload)..."
 	air
 
 # =========================
-# 🛠️ Install Air (One-time)
+# Install Air (One-time)
 # =========================
 install-air:
-	@echo "⬇️ Installing Air hot reload tool..."
+	@echo "⬇Installing Air hot reload tool..."
 	go install github.com/air-verse/air@latest
-	@echo "✅ Air installed successfully."
+	@echo "Air installed successfully."
 
 # =========================
-# 🧭 Help Menu
+# Help Menu
 # =========================
 help:
 	@echo ""
-	@echo "🧭 Available Make Commands:"
+	@echo "Available Make Commands:"
 	@echo "  make build        → Build the application binaries"
 	@echo "  make migrate      → Run database migrations"
 	@echo "  make seed         → Seed database with sample data"

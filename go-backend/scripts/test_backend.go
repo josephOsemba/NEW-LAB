@@ -35,7 +35,7 @@ func main() {
 		log.Fatal("Experiments endpoint failed:", err)
 	}
 
-	fmt.Println("\n✅ All tests passed! Backend is working correctly.")
+	fmt.Println("\nAll tests passed! Backend is working correctly.")
 }
 
 func testEndpoint(url string) error {
@@ -56,6 +56,6 @@ func testEndpoint(url string) error {
 		return err
 	}
 
-	fmt.Printf("✅ %s - Status: %d\n", url, resp.StatusCode)
+	fmt.Printf(" %s - Status: %d\n", url, resp.StatusCode)
 	return nil
 }

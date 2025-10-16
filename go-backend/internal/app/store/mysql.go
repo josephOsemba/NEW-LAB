@@ -88,7 +88,6 @@ func (s *MySQLStore) GetLabsByUniversity(universityID int64) ([]models.Lab, erro
 }
 
 func (s *MySQLStore) GetLabBySlug(universityID int64, slug string) (*models.LabWithExperiments, error) {
-	// Get lab
 	query := `SELECT id, university_id, name, slug, description, thumbnail, config, created_at, updated_at 
 	          FROM labs WHERE university_id = ? AND slug = ?`
 	row := s.db.QueryRow(query, universityID, slug)
@@ -135,7 +134,6 @@ func (s *MySQLStore) GetExperimentsByLab(labID int64) ([]models.Experiment, erro
 }
 
 func (s *MySQLStore) GetExperimentBySlug(labID int64, slug string) (*models.ExperimentWithApparatus, error) {
-	// Get experiment
 	query := `SELECT id, lab_id, university_id, title, slug, summary, difficulty, config, created_at, updated_at 
 	          FROM experiments WHERE lab_id = ? AND slug = ?`
 	row := s.db.QueryRow(query, labID, slug)
@@ -146,7 +144,6 @@ func (s *MySQLStore) GetExperimentBySlug(labID int64, slug string) (*models.Expe
 		return nil, err
 	}
 
-	// Get apparatus for this experiment
 	apparatus, err := s.GetApparatusByExperiment(exp.ID)
 	if err != nil {
 		return nil, err
